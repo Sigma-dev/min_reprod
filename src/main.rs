@@ -56,7 +56,7 @@ fn update(
         let tx: Sender<LobbyId> = client.tx.clone();
         steam_client.matchmaking().create_lobby(LobbyType::Public, 2, 
             move |res| {
-                if let Ok(lobby_id) = r+es {
+                if let Ok(lobby_id) = res {
                     tx.send(lobby_id);
                 }
             });
